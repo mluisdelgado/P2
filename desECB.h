@@ -141,11 +141,11 @@ static const unsigned short S_BOXES[NUM_S_BOXES][ROWS_PER_SBOX][COLUMNS_PER_SBOX
 
 void fillChars(unsigned char* text, int pos);
 
-short* charsToBits(unsigned char* bytes);
+void charsToBits(unsigned char* bytes, short* bits);
 
-short* DESBlock(short* bits, short* key);
+void DESBlock(short* bits, short keys[ROUNDS][BITS_IN_PC2], short* perm);
 
-void keysRound(short* key, short** keysR);
+void keysRound(short* key, short keysR[ROUNDS][BITS_IN_PC2]);
 
 void leftShift(short* bits, int size);
 
