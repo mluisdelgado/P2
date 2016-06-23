@@ -17,6 +17,8 @@
 #define NUM_S_BOXES 8
 #define ROWS_PER_SBOX 4
 #define COLUMNS_PER_SBOX 16
+#define SBOX_IN 6
+#define SBOX_OUT 4
 
 
 /* "permutaci�n" PC1 */
@@ -152,3 +154,21 @@ void leftShift(short* bits, int size);
 void sumMod2(short* bits1, short* bits2, short* sum, int size);
 
 void cipherFunc(short* bitsR, short* bitsK, short* result);
+
+int checkParity(short* key);
+
+void reverseKeys(short keys[ROUNDS][BITS_IN_PC2]);
+
+void bitsToChars(short* bits, unsigned char* bytes);
+
+void genKey(short* key);
+
+//CRITERIOS SAC, BIC
+
+void genBits(short *bits);
+
+void getSAC(short *bits, double res[8][SBOX_OUT]);
+
+void calcSBox(short *bits, short boxIndex, short* res);
+
+void restoreBits(short* bits, short* restored);
